@@ -1,0 +1,327 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+.header{
+    min-height: 100vh;
+    width: 100%;
+    background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),url(images/bostonbridge.jpg);
+    background-position: center;
+    background-size: cover;
+    position: relative;/*break this*/
+}
+nav{
+    display: flex;
+    padding: 2% 6%;
+    justify-content: space-between;
+    align-items: center;
+}
+nav img{/*okay update, we found out that if you set the width to 35% it would leave a big empty space that still counts as a link for some reason. It's not because its a part of the image but instead a part of the nav, leaving me to believe that the 35% is of the nav container. however, without the 100% the size will never adjust when the screen size changes */
+    width: 100%; /* this is the value we keep the image at normally */
+    max-width: 400px; /* and this is the value that we never want the image to exceed */
+}
+.nav-links{
+    flex: 1;
+    text-align: right;
+}
+.nav-links ul li{
+    list-style: none;
+    display: inline-block;
+    padding: 8px 12px; /* this means 8px of vertical padding and 12px horzontal padding */
+    position: relative;
+}
+.nav-links ul li a{
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+}
+.nav-links ul li::after{/*UPDATE: so this creates a line that appears under the links that is normally at 0% width*/
+    content: '';
+    width: 0%;
+    height: 2px;
+    background: #f44336;
+    display: block;/*if this was inline then none of the width height or anything else would matter*/
+    margin: auto;/*if you mess with this it loads left to right*/
+    transition: .35s;
+}
+.nav-links ul li:hover::after{/*but this will run after the link is hovered over and the line will get big according to the transition time above*/
+    width: 100%;
+}
+.text-box{
+    width: 90%;
+    color: #fff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);/*center of div*/
+    text-align: center;
+}
+.text-box h1{
+    font-size: 62px;
+}
+.text-box p{
+    margin: 10px 0 40px;
+    font-size: 14px;
+    color: #fff;
+}
+.hero-btn{
+    display: inline-block;
+    text-decoration: none;
+    color: #fff;
+    border: 1px solid #fff;
+    padding: 12px 34px;
+    font-size: 13px;
+    background: transparent;
+    position: relative;
+    cursor: pointer;
+}
+.hero-btn:hover{
+    border: 1px solid #f44336;
+    background: #f44336;
+    transition: 1s;
+}
+
+nav .fa{
+    display: none;
+}
+
+@media(max-width: 700px){ /*nav menu*/
+    .text-box h1{
+        font-size: 20px;
+    }
+    .nav-links ul li{
+        display: block;
+    }
+    .nav-links{
+        position: absolute;
+        background: #f44336;
+        height: 100vh;
+        width: 200px;
+        top: 0;
+        right: -200px;
+        text-align: left;
+        z-index: 2;
+        transition: 1s;
+    }
+    nav .fa{
+        display: block;
+        color: #fff;
+        margin: 10px;
+        font-size: 22px;
+        cursor: pointer;
+    }
+    .nav-links ul{
+        padding: 30px;
+    }
+}
+
+/*  Skills section  */
+
+.skill{
+    width: 80%;
+    margin: auto;
+    text-align: center;
+    padding-top: 100px;
+}
+.skill h1{
+    font-size: 36px;
+    font-weight: 600;
+}
+.skill p{
+    color: #777;
+    font-size: 14px;
+    line-height: 22px;
+    padding: 10px;
+}
+.row{
+    margin-top: 5%;
+    display: flex;
+    justify-content: space-between;
+}
+.skill-col{
+    flex-basis: 31%;
+    background: #fff3f3;
+    border-radius: 10px;
+    margin-bottom: 5%;
+    padding: 20px 12px;
+    box-sizing: border-box;
+    transition: 0.5s;
+}
+.skill h3{
+    text-align: center;
+    font-weight: 600;
+    margin: 10px 0;
+}
+.skill-col:hover{
+    box-shadow: 0 0 20px 0px rgba(0,0,0,0.2);
+}
+
+@media(max-width: 850px){
+    .row{
+        flex-direction: column;
+    }
+}
+
+/* --------- Interesting facts --------- */
+.int-fact{
+    width: 80%;
+    margin: auto;
+    text-align: center;
+    padding-top: 50px;
+}
+.int-col{
+    flex-basis: 32%;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    position: relative;
+    overflow: hidden;
+}
+.int-col img{
+    width: 100%;
+    height: 100%;
+    max-height: fit-content;
+    display: block;
+}
+.layer{
+    background: transparent;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: .5s;
+}
+.layer:hover{
+    background: rgba(226,0,0,0.4);
+}
+.layer h3{
+    width: 100%;
+    font-weight: 500;
+    color: #fff;
+    font-size: 26px;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    position: absolute;
+    opacity: 0;
+    transition: 0.5s;
+}
+.layer:hover h3{
+    bottom: 50%;
+    transform: translate(-50%, 50%); /*translate is based off the size of the child object instead of the container, so this code is to perfectly center the text taking into account it's size*/
+    opacity: 1;
+}
+
+.photogallery{
+    width: 80%;
+    margin: auto;
+    text-align: center;
+    padding-top: 100px;
+}
+.gallery-col{
+    flex-basis: 31%;
+    border-radius: 10px;
+    margin-bottom: 5%;
+    text-align: left;
+}
+.gallery-col img{
+    width: 100%;
+    border-radius: 10px;
+
+}
+/* #peacefulriver{
+    background-image: url(images/peacefulriver.jpg);
+    background-size: cover;
+    background-position: 50%;
+} */
+.gallery-col p{
+    padding: 0;
+}
+.gallery-col h3{
+    margin-top: 16px;
+    margin-bottom: 15px;
+    text-align: left;
+}
+/* ---------vouchers------------ */
+.vouchers{
+    width: 80%;
+    margin: auto;
+    padding-top: 100px;
+    text-align: center;
+}
+.vouchers-col{
+    flex-basis: 44%;
+    border-radius: 10px;
+    margin-left: 2.5%;
+    margin-right: 2.5%;
+    margin-bottom: 5%;
+    text-align: left;
+    background: #fff3f3;
+    padding: 25px;
+    cursor: pointer;
+    display: flex;
+}
+.vouchers-col img{
+    height: 40px;
+    margin-left: 5px;
+    margin-right: 30px;
+    border-radius: 50%;
+}
+.vouchers-col p{
+    padding: 0;
+}
+.vouchers-col h3{
+    margin-top: 15px;
+    text-align: left;
+}
+.vouchers-col .fa{
+    color: #f44336;
+}
+
+@media(max-width: 700px){
+    .testimonial-col img{
+        margin-left: 0px;
+        margin-right: 15px;
+    }
+}
+
+/* -------contact me------- */
+.contact{
+    margin: 100px auto;
+    width: 80%;
+    background-image: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),url(images/hotellobby.jpg);
+    background-position: center;
+    background-size: cover;
+    border-radius: 10px;
+    text-align: center;
+    padding: 100px 0;
+}
+.contact h1{
+    color: #fff;
+    margin-bottom: 40px;
+    padding: 0;
+}
+@media(max-width: 700px){
+    .cta h1{
+        font-size: 24px;
+    }
+}
+
+/* --------- footer --------- */
+.footer{
+    width: 100%;
+    text-align: center;
+    padding: 30px 0;
+}
+.footer h4{
+    margin-bottom: 25px;
+    margin-top: 20px;
+    font-weight: 600;
+}
+.socials .fa{
+    color: #f44336;
+    margin: 0 13px;
+    cursor: pointer;
+    padding: 18px 0;
+}
