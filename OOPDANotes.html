@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="module" src="https://cdn.jsdelivr.net/gh/zerodevx/zero-md@2/dist/zero-md.min.js"></script>
+    <title>OOPDA Class Notes</title>
+    <style>
+        * {
+          box-sizing: border-box;
+        }
+        ::-webkit-scrollbar {
+          width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+          background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+          background-color: #868686;
+          border-radius: 20px;
+          border: 3px solid transparent;
+          background-clip: content-box;
+        }
+        #siteContent {
+          display: flex;
+          max-width: 95vw;
+        }
+        .navContainer {
+          max-width: 300px;
+          width: 25vw;
+          font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
+        }
+        .navContainer #navigationBar {
+          position: sticky;
+          padding: 1rem;
+          top: 40px;
+          width: 80%;
+          margin-left: 1rem;
+          margin-right: 1rem;
+          margin-top: 90px;
+          border: 1px solid #dedede;
+          border-radius: 5px;
+          overflow: hidden;
+          color: #d4d4d4;
+        }
+        .navContainer #navigationBar h1 {
+          margin: 0;
+        }
+        .navContainer #navigationBar a {
+          text-decoration: none;
+          color: #d4d4d4;
+        }
+        .navContainer #navigationBar ol {
+          padding-inline-start: 1.5rem;
+          margin-bottom: 0;
+          margin-top: 0.55rem;
+        }
+        #markdownContent {
+          width: 70vw;
+        }
+        @media only screen and (width < 500px) {
+          body {
+            margin: 0;
+          }
+          #siteContent {
+            display: grid;
+          }
+          .navContainer {
+            width: 100%;
+            max-width: 100%;
+          }
+          .navContainer #navigationBar {
+            width: 90%;
+            position: static;
+            margin: 0 auto;
+            margin-top: 15px;
+          }
+          #markdownContent {
+            width: 90vw;
+            margin: 0 auto;
+          }
+        }
+    </style>
+</head>
+<body style="background-color: #1e1e1e;">
+
+    <div id="siteContent">
+      <div class="navContainer">
+        <nav id="navigationBar">
+          <h1>Navigation Links</h1>
+          <ol>
+            <li><a href="/~carrwi96/OOPDANotes.html#java-oopda">Java</a></li>
+            <li><a href="https://users.rowan.edu/~carrwi96/OOPDANotes.html#hashing">Hashing</a></li>
+            <li><a href="#maps">Maps</a></li>
+            <li><a href="#interfaces">Interfaces</a></li>
+            <li><a href="#inheritance">Inheritance</a></li>
+            <li><a href="#java-oopda">Lambda Functions</a></li>
+          </ol>
+        </nav>
+      </div>
+      <zero-md src="notes.md" id="markdownContent">
+          `notes.md` was *not* found
+          <template>
+              <style>
+                  * {
+                      line-height: 1.6;
+                      color: #d4d4d4;
+                      font-family: "Segoe UI", sans-serif;
+                  }
+                  h1, h2 {
+                      font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
+                      font-style: normal;
+                      font-variant: normal;
+                      font-weight: 700;
+                  }
+                  h1 {
+                      font-size: 24px;
+                      line-height: 26.4px;
+                  }
+                  h2 {
+                      font-size: 18px;
+                      line-height: 22px;
+                  }
+                  pre {
+                      background-color: rgba(10, 10, 10, 0.4);
+                      padding: 16px;
+                      border-radius: 3px;
+                      overflow: auto;
+                  }
+                  th, td {
+                      padding: 5px 15px;
+                      text-align: left;
+                  }
+                  table {
+                      border-collapse: collapse;
+                  }
+                  th {
+                      border-bottom: 2px solid;
+                  }
+                  hr {
+                      color: rgba(255, 255, 255, 0.18);
+                  }
+              </style>
+          </template>
+      </zero-md>
+    </div>
+</body>
+</html>
