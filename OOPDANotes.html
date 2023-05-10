@@ -8,6 +8,8 @@
     <script src="https://code.jquery.com/jquery-3.5.1.min.js" charset="utf-8"></script>
     <title>OOPDA Class Notes</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Space+Mono&display=swap');
+
         * {
           box-sizing: border-box;
         }
@@ -83,6 +85,24 @@
           }
         }
     </style>
+    <script>
+      $(document).ready(function() {
+        const jumpLinks = document.querySelectorAll('a[href^="#"]'); // finds jump links
+
+        jumpLinks.forEach(link => {
+          link.addEventListener("click", e => {
+            window.location = link.href;
+            window.location.reload(); //refreshing because the links don't do anyting otherwise
+            // const targetID = link.getAttribute('href');
+            // console.log(targetID);
+            // const targetElement = document.querySelector(targetID); //get the element with that id
+            // console.log(targetElement);
+            // targetElement.scrollIntoView({ behavior: 'smooth' });//it doesnt work and now i think it's zero-md's fault
+            // console.log("successfully completed");
+          });
+        });
+      });
+    </script>
 </head>
 <body style="background-color: #1e1e1e;">
 
@@ -97,6 +117,7 @@
             <li><a href="#interfaces">Interfaces</a></li>
             <li><a href="#inheritance">Inheritance</a></li>
             <li><a href="#lambda-functions">Lambda Functions</a></li>
+            <li><a href="#design">Design</a></li>
           </ol>
         </nav>
       </div>
@@ -104,10 +125,25 @@
           `notes.md` was *not* found
           <template>
               <style>
-                  * {
+                  *:not(code *) {
                       line-height: 1.6;
                       color: #d4d4d4;
                       font-family: "Segoe UI", sans-serif;
+                  }
+                  ::-webkit-scrollbar {
+                    width: 8px;
+                  }
+                  pre::-webkit-scrollbar {
+                    height: 8px;
+                  }
+                  ::-webkit-scrollbar-track {
+                    background: transparent;
+                  }
+                  ::-webkit-scrollbar-thumb {
+                    background-color: #868686;
+                    border-radius: 20px;
+                    border: 3px solid transparent;
+                    background-clip: content-box;
                   }
                   h1, h2 {
                       font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
@@ -118,6 +154,8 @@
                   h1 {
                       font-size: 24px;
                       line-height: 26.4px;
+                      padding-top: 1em;
+                      border-bottom: 2px solid rgba(255, 255, 255, 0.35);
                   }
                   h2 {
                       font-size: 18px;
@@ -129,6 +167,16 @@
                       border-radius: 3px;
                       overflow: auto;
                   }
+                  pre code *:not(.string) {
+                    color: #d4d4d4;
+                  }
+                  pre code {
+                    color: #94c0e5;
+                  }
+                  code {
+                    font-family: 'Space Mono', Courier, monospace;
+                    color: #ce9178;
+                  }
                   th, td {
                       padding: 5px 15px;
                       text-align: left;
@@ -136,8 +184,13 @@
                   table {
                       border-collapse: collapse;
                   }
-                  th {
-                      border-bottom: 2px solid;
+                  thead tr:first-child {
+                      border-bottom: 1px solid;
+                      border-color: rgba(255, 255, 255, 0.7);
+                  }
+                  tbody tr:not(:last-child) {
+                    border-bottom: 2px solid;
+                    border-color: rgba(255, 255, 255, 0.3);
                   }
                   hr {
                       color: rgba(255, 255, 255, 0.18);
